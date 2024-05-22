@@ -1,0 +1,37 @@
+.operador, .operando, .equals-operador{
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border-color: rgb(63, 63, 63);
+}
+
+.operador{
+  background: linear-gradient(180deg, #2a586d , #2673c0 50%);
+}
+
+.operador:hover{
+  background: linear-gradient(180deg, #2a586d , #386088 50%);
+}
+
+.operando {
+  background: linear-gradient(180deg, #233e4b , #385672 50%);
+  
+}
+
+.operando:hover{
+  background: linear-gradient(180deg, #2c5061 , #2c3f50 50%);
+}
+
+.equals-operador {
+  color: black;
+  background: linear-gradient(180deg, #92b776 , #bfe094 50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Añadir sombra */
+}
+
+.equals-operador:hover{
+  background: linear-gradient(180deg, #92b776 , #8da173 50%);
+}
