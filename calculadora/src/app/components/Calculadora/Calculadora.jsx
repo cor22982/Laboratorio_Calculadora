@@ -1,8 +1,15 @@
+'use client';
 import React from 'react';
 import './Calculadora.css'
 import Button from '../Button/Button';
-
+import { useState } from 'react';
 const Calculadora = () => {
+  const [showdisplay, setShowdisplay] = useState('')
+
+  const append = (item) => {
+    setShowdisplay((prev) => prev + item);
+  };
+
   return (
     <div >
       <h2 style={{color: 'white'}}>Calculadora</h2>
