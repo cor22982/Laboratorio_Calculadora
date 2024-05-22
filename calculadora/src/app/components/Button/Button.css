@@ -10,11 +10,11 @@
 }
 
 .operador{
-  background: linear-gradient(180deg, #2a586d , #2673c0 50%);
+  background: linear-gradient(180deg, #366a81 , #2673c0 50%);
 }
 
 .operador:hover{
-  background: linear-gradient(180deg, #2a586d , #386088 50%);
+  background: linear-gradient(180deg, #366a81 , #386088 50%);
 }
 
 .operando {

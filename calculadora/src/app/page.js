@@ -2,7 +2,7 @@ import Calculadora from "./components/Calculadora/Calculadora";
 
 export default function Home() {
   return (
-    <div>
+    <div >
       <Calculadora></Calculadora>
     </div>
   );
