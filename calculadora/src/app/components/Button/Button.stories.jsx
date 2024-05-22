@@ -10,7 +10,7 @@ export default meta
 
 export const Default = {
   args: {
-    text: 'CLICK ME!',
+    text: '0',
     onClick: fn(),
     tipo: 'operador'
   }
