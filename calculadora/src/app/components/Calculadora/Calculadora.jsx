@@ -69,10 +69,17 @@ const Calculadora = () => {
         resultado = numero1 * numero2;
         break;
       default:
+        resultado = numero2
         return;
+      
+      
     }
-    setShowdisplay(resultado.toString());
-    setFormState({ prevalue: resultado.toString(), operador: '', nowvalue: '' });
+    if (resultado > 999999999.0) {
+      setShowdisplay('ERROR');    
+    }else {
+      setShowdisplay(resultado.toString());
+      setFormState({ prevalue: resultado.toString(), operador: '', nowvalue: '' });
+    }
   };
 
   return (
