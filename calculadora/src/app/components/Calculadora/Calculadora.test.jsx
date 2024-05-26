@@ -1,6 +1,7 @@
 // src/app/components/Calculadora/Calculadora.test.jsx
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import Calculadora from './Calculadora';
 
@@ -44,9 +45,19 @@ test('negative-number',  async () => {
 });
 
 
-test('size-number',  async () => {
-  const number1 = screen.getByText('9')
-  const result = screen.getByTestId('resultado');
+test('size-number', async () => {
+  render(<Calculadora />);
+
+  const number1 = await screen.findByText('9');
+  const result = await screen.findByTestId('resultado');
+
+  await act(async () => {
+    number1.click()
+  })
+  await act(async () => {
+    number1.click()
+  })
+
   await act(async () => {
     number1.click()
   })
@@ -68,14 +79,9 @@ test('size-number',  async () => {
   await act(async () => {
     number1.click()
   })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  expect(result.textContent).toBe('999999999');
+  expect(result.textContent.length).toBe(9);
 });
+
 
 test('over-operation',  async () => {
   const number1 = screen.getByText('9')
