@@ -47,6 +47,10 @@ const Calculadora = () => {
   };
 
   const operar = (item) => {
+   
+    if (formState.nowvalue.length > 0) {
+      evauluar()
+    }
     setValue('operador', item);
   };
 
