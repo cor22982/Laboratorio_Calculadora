@@ -140,3 +140,28 @@ test('over-operation',  async () => {
   })
   expect(result.textContent).toBe('ERROR');
 });
+
+test('division-over-test',  async () => {
+  render(<Calculadora />);
+  const number1 = await screen.findByText('2')
+  const number2 = await screen.findByText('7')
+  const simbol =  await screen.findByText('/')
+  const equals =  await screen.findByText('=')
+  const result =  await screen.getByTestId('resultado');
+  await act(async () => {
+    number1.click()
+  })
+  await act(async () => {
+    number1.click()
+  })
+  await act(async () => {
+    simbol.click()
+  })
+  await act(async () => {
+    number2.click()
+  })
+  await act(async () => {
+    equals.click()
+  })
+  expect(result.textContent.length).toBe(9);
+});
