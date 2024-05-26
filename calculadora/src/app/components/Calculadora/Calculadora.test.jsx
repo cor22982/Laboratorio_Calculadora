@@ -8,7 +8,7 @@ test('renders correctly', () => {
   render(<Calculadora />);
 });
 
-//<div data-testid="resultado"></div>
+
 test('add two numbers',  async () => {
   render(<Calculadora />);
   const number1 = await screen.findByText('1')
@@ -59,37 +59,11 @@ test('size-number', async () => {
   render(<Calculadora />);
   const number1 = await screen.findByText('9');
   const result = await screen.findByTestId('resultado');
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
+  for (let i = 1; i <= 11; i++) {
+    await act(async () => {
+      number1.click()
+    })
+  }
   expect(result.textContent.length).toBe(9);
 });
 
@@ -101,33 +75,11 @@ test('over-operation',  async () => {
   const simbol =  await screen.findByText('+')
   const equals =  await screen.findByText('=')
   const result =  await screen.getByTestId('resultado');
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
+  for (let i = 1; i <= 9; i++) {
+    await act(async () => {
+      number1.click()
+    })
+  }
   await act(async () => {
     simbol.click()
   })
@@ -148,12 +100,11 @@ test('division-over-test',  async () => {
   const simbol =  await screen.findByText('/')
   const equals =  await screen.findByText('=')
   const result =  await screen.getByTestId('resultado');
-  await act(async () => {
-    number1.click()
-  })
-  await act(async () => {
-    number1.click()
-  })
+  for (let i = 1; i <= 2; i++) {
+    await act(async () => {
+      number1.click()
+    })
+  }
   await act(async () => {
     simbol.click()
   })
