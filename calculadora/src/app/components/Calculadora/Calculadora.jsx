@@ -50,6 +50,11 @@ const Calculadora = () => {
     setValue('operador', item);
   };
 
+  const deletenow = () => {
+    setValue('nowvalue','')
+    setShowdisplay('')
+  }
+
   const evauluar = () => {
     const expr = formState.operador;
     const numero1 = parseFloat(formState.prevalue);
@@ -94,7 +99,7 @@ const Calculadora = () => {
         </div>
         <div className="comands">
           <Button text='De' tipo='operador' onClick={deleteall}></Button>
-          <Button text='C' tipo='operador'></Button>
+          <Button text='C' tipo='operador' onClick={deletenow}></Button>
           <Button text='⌫' tipo='operador' onClick={deleteone}></Button>
           <Button text='+/-' tipo='operador'></Button>
           <Button text='7' tipo='operando' onClick={() => append('7')}></Button>
