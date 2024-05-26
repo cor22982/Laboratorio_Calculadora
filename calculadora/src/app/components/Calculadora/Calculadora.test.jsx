@@ -1,7 +1,6 @@
 // src/app/components/Calculadora/Calculadora.test.jsx
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import Calculadora from './Calculadora';
 
@@ -34,10 +33,12 @@ test('add two numbers',  async () => {
 });
 
 test('negative-number',  async () => {
-  const number1 = screen.getByText('1')
-  const number2 = screen.getByText('2')
-  const simbol = screen.getByText('-')
-  const result = screen.getByTestId('resultado');
+  render(<Calculadora />);
+  const number1 = await screen.findByText('1')
+  const number2 = await screen.findByText('2')
+  const simbol =  await screen.findByText('-')
+  const equals =  await screen.findByText('=')
+  const result = await screen.getByTestId('resultado');
   await act(async () => {
     number1.click()
   })
@@ -46,6 +47,9 @@ test('negative-number',  async () => {
   })
   await act(async () => {
     number2.click()
+  })
+  await act(async () => {
+    equals.click()
   })
   expect(result.textContent).toBe('ERROR');
 });

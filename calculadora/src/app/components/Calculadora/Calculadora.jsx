@@ -76,7 +76,10 @@ const Calculadora = () => {
     }
     if (resultado > 999999999.0) {
       setShowdisplay('ERROR');    
-    }else {
+    }else if (resultado < 0) {
+      setShowdisplay('ERROR')
+    }
+    else {
       setShowdisplay(resultado.toString());
       setFormState({ prevalue: resultado.toString(), operador: '', nowvalue: '' });
     }
