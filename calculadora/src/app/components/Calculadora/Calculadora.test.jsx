@@ -47,10 +47,8 @@ test('negative-number',  async () => {
 
 test('size-number', async () => {
   render(<Calculadora />);
-
   const number1 = await screen.findByText('9');
   const result = await screen.findByTestId('resultado');
-
   await act(async () => {
     number1.click()
   })
@@ -58,6 +56,9 @@ test('size-number', async () => {
     number1.click()
   })
 
+  await act(async () => {
+    number1.click()
+  })
   await act(async () => {
     number1.click()
   })
