@@ -2,14 +2,24 @@
 import React from 'react';
 import './Calculadora.css';
 import Button from '../Button/Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Display from '../Display/Display';
-
+import SmallDisplay from '../SmallDisplay/SmallDisplay';
 const Calculadora = () => {
   const [showdisplay, setShowdisplay] = useState('');
   const [formState, setFormState] = useState({ prevalue: '', operador: '', nowvalue: '' });
+  const [displayabove, setDisplayabove] = useState('')
 
-  console.log(formState);
+
+  useEffect(() => {
+    if (formState.prevalue.length > 0 && formState.operador.length > 0) {
+      setDisplayabove(formState.prevalue + ' ' + formState.operador);
+    } else {
+      setDisplayabove(''); // Opcional: establece displayabove a una cadena vacía si no se cumplen las condiciones
+    }
+  }, [formState]);
+
+
   const setValue = (name, value) => {
     setFormState((prevFormState) => ({
       ...prevFormState,
@@ -99,6 +109,7 @@ const Calculadora = () => {
       <h2 style={{ color: 'white' }}>Calculadora</h2>
       <div className='calculadora'>
         <div className="display">
+          <SmallDisplay text={displayabove}></SmallDisplay>
           <Display text={showdisplay}></Display>
         </div>
         <div className="comands">
