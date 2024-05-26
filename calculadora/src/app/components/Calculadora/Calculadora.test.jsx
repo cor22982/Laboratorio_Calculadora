@@ -11,10 +11,12 @@ test('renders correctly', () => {
 
 //<div data-testid="resultado"></div>
 test('add two numbers',  async () => {
-  const number1 = screen.getByText('1')
-  const number2 = screen.getByText('2')
-  const simbol = screen.getByText('+')
-  const result = screen.getByTestId('resultado');
+  render(<Calculadora />);
+  const number1 = await screen.findByText('1')
+  const number2 = await screen.findByText('2')
+  const simbol =  await screen.findByText('+')
+  const equals =  await screen.findByText('=')
+  const result =  await screen.getByTestId('resultado');
   await act(async () => {
     number1.click()
   })
@@ -23,6 +25,10 @@ test('add two numbers',  async () => {
   })
   await act(async () => {
     number2.click()
+  })
+
+  await act(async () => {
+    equals.click()
   })
   expect(result.textContent).toBe('3');
 });
