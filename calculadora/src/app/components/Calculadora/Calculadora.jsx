@@ -14,7 +14,9 @@ const Calculadora = () => {
   useEffect(() => {
     if (formState.prevalue.length > 0 && formState.operador.length > 0) {
       setDisplayabove(formState.prevalue + ' ' + formState.operador);
-    } else {
+    } 
+    
+    else {
       setDisplayabove(''); // Opcional: establece displayabove a una cadena vacía si no se cumplen las condiciones
     }
   }, [formState]);
@@ -55,6 +57,18 @@ const Calculadora = () => {
       }
     }
   };
+
+  const reasing = () => {
+    if (showdisplay.length > 0) {
+      
+      if (formState.operador.length === 0) {
+        setValue('prevalue', '-'+formState.prevalue);
+      } else {
+        setValue('nowvalue', '-'+formState.nowvalue);
+      }
+      setShowdisplay('-'+ showdisplay);
+    }
+  }
 
   const operar = (item) => {
    
@@ -102,6 +116,8 @@ const Calculadora = () => {
       setShowdisplay(resultado.toString());
       setFormState({ prevalue: resultado.toString(), operador: '', nowvalue: '' });
     }
+    
+    
   };
 
   return (
@@ -116,7 +132,7 @@ const Calculadora = () => {
           <Button text='De' tipo='operador' onClick={deleteall}></Button>
           <Button text='C' tipo='operador' onClick={deletenow}></Button>
           <Button text='⌫' tipo='operador' onClick={deleteone}></Button>
-          <Button text='+/-' tipo='operador'></Button>
+          <Button text='+/-' tipo='operador' onClick={reasing}></Button>
           <Button text='7' tipo='operando' onClick={() => append('7')}></Button>
           <Button text='8' tipo='operando' onClick={() => append('8')}></Button>
           <Button text='9' tipo='operando' onClick={() => append('9')}></Button>
